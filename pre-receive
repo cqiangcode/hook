@@ -1,0 +1,24 @@
+[200~#!/bin/bash::
+
+while read oldVersion newVersion branch; do
+    echo ${oldVersion}
+        echo ${newVersion}
+	    echo ${branch}
+
+	        diff=`git diff --name-status $oldVersion $newVersion`
+		    echo $diff
+
+		        for file in $diff
+			    do
+			            if [ "${#file}" -lt "2" ];then
+				                continue
+						        fi
+							        echo $file
+
+								        diffContent=`git show $newVersion:test.txt`
+									        echo $diffContent
+										        #对diff文件内容做校验，如果不符合条件则exit -1
+											    done
+											    done
+
+											    exit 0
